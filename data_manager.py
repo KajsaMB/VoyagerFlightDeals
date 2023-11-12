@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 load_dotenv("local.env")
 
 class DataManager:
-    #This class is responsible for talking to the Google Sheet.
     def __init__(self):
         self.sheet_data = {}
         self.endpoint = os.getenv("SHEET_ENDPOINT")
@@ -28,13 +27,12 @@ class DataManager:
         response = requests.post(url=f"{self.endpoint}", json=new_destination, headers=self.token)
         print(response.text)
 
-    # def add_iata_code(self):
-    #     for city in self.sheet_data:
-    #         new_data = {
-    #             "flightdeal": {
-    #                 "iataCode": city["iataCode"]
-    #             }
-    #         }
-    #         response = requests.put(url=f"{self.endpoint}/{city['id']}", json=new_data, headers=self.token)
-    #         print(response.text)
+    def add_iata_code(self):
+        for city in self.sheet_data:
+            new_data = {
+                 "flightdeal": {
+                     "iataCode": city["iataCode"]
+                 }
+            }
+            response = requests.put(url=f"{self.endpoint}/{city['id']}", json=new_data, headers=self.token)
 
