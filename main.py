@@ -41,7 +41,7 @@ register_new_users = True
 #                         "email": email,
 #                     }
 #                 }
-#                 response = requests.post(url=f"https://api.sheety.co/9d57a838d5ddf3fa43e5b8042a0cda90/flightDeals/users",
+#                 response = requests.post(url=SHEETY_API_URL,
 #                                         json=new_user, headers=HEADERS)
 #                 response.raise_for_status()
 #                 print(response.text)
